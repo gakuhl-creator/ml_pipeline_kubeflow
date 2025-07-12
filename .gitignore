@@ -1,0 +1,17 @@
+# Ignore Python bytecode and cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+.env/
+
+# OS/filesystem clutter
+.DS_Store
+*.swp
+*.swo
+
+# Sensitive stuff
+.env

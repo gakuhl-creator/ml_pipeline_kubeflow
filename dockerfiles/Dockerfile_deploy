@@ -1,0 +1,25 @@
+# Start from a base Python image
+FROM python:3.11-slim
+
+# Install dependencies: kubectl, curl, and Python packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    kubectl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Install Python dependencies (e.g., subprocess, kubernetes)
+COPY requirements/requirements-deploy.txt ./
+RUN pip install --no-cache-dir -r requirements-deploy.txt
+
+# Copy the deploy.py script into the container
+COPY scripts/deploy.py ./
+COPY script/deploy_utils.py ./
+
+#Copy the .env file into the container
+COPY .env ./
+
+# Run deploy.py when the container starts
+CMD ["python", "deploy.py"]

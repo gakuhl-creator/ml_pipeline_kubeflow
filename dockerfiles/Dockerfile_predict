@@ -1,0 +1,18 @@
+# Use an official Python runtime as a parent image
+FROM python:3.11-slim
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the requirements.txt and install the dependencies
+COPY requirements/requirements-predict.txt ./
+RUN pip install --no-cache-dir -r requirements-predict.txt
+
+# Copy the predict.py script into the container
+COPY scripts/predict.py ./
+
+#Copy the .env file into the container
+COPY .env ./
+
+# Run predict.py when the container starts
+CMD ["python", "predict.py"]

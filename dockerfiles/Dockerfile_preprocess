@@ -1,0 +1,18 @@
+# Use an official Python runtime as the base image
+FROM python:3.11-slim
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy the requirements file and install dependencies
+COPY requirements/requirements-preprocess.txt ./
+RUN pip install --no-cache-dir -r requirements-preprocess.txt
+
+# Copy the preprocessing script into the container
+COPY scripts/preprocess.py ./
+
+#Copy the .env file into the container
+COPY .env ./
+
+# Command to run the preprocessing script when the container starts
+CMD ["python", "preprocess.py"]
