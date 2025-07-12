@@ -16,6 +16,7 @@ A production-grade machine learning pipeline for customer churn prediction using
 - Modular and maintainable Python package layout
 - Configurable through a centralized `.env` file
 - Ready for local (Kind) or cloud (Kubernetes) deployment
+- Data from Kaggle found Here: [wa-fnusec-telcocustomerchurn](https://www.kaggle.com/datasets/palashfendarkar/wa-fnusec-telcocustomerchurn)
 
 ---
 
