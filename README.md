@@ -164,6 +164,7 @@ Send a JSON payload such as the following toward  ```/predict```
 
 ## ✅ Next Steps
 
+- TODO prove this works on local Kubeflow Pipeline (using Kind)
 - Track data versions and schema drift
 - Include Infrasture as Code (IaC) tool
 - Address scalability concerns
